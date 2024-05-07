@@ -1,6 +1,7 @@
-const flatten = (arr, depth = 1) =>
-  arr.reduce(
-    (a, v) =>
-      a.concat(depth > 1 && Array.isArray(v) ? flatten(v, depth - 1) : v),
-    [],
-  );
+function countBits(num) {
+  const result = new Array(num + 1).fill(0);
+  for (let i = 1; i <= num; i++) {
+    result[i] = result[i >> 1] + (i & 1);
+  }
+  return result;
+}
